@@ -71,10 +71,12 @@
   }
 
   rcmail.addEventListener('init', function(evt) {
-    Unity = external.getUnityObject(1.0);
+    if (typeof external.getUnityObject !== 'undefined') {
+      Unity = external.getUnityObject(1.0);
  
-    Unity.init({name: title,
+      Unity.init({name: title,
                 iconUrl: icon,
                 onInit: unityReady});
+    }
   });
 })();
